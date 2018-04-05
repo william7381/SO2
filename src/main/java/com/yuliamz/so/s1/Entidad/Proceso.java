@@ -1,9 +1,10 @@
 package com.yuliamz.so.s1.Entidad;
 
-/**
- *
- * @author Yuliamz
- */
+@lombok.Data
 public class Proceso {
+    
+    String nombre;
+    int tiempo;
+    boolean isBloqueado;
     
 }
