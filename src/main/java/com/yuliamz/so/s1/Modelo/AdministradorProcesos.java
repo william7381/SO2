@@ -1,17 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.yuliamz.so.s1.Modelo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-/**
- *
- * @author equipo
- */
 @lombok.Getter
 public class AdministradorProcesos {
     public static final int QUANTUM = 5;
@@ -25,8 +15,8 @@ public class AdministradorProcesos {
     private ArrayList<Proceso> despertados;
     private ArrayList<Proceso> finalizados;
 
-    public AdministradorProcesos(ArrayList<Proceso> listaProcesos) {
-        listos = listaProcesos;
+    public AdministradorProcesos(ArrayList<Proceso> listaProcesos){
+        listos=listaProcesos;
         despachados = new ArrayList<>();
         ejecucion = new ArrayList<>();
         expiracionTiempo = new ArrayList<>();
@@ -37,9 +27,8 @@ public class AdministradorProcesos {
     }
     
     public void iniciarSecuencia() throws CloneNotSupportedException {
-        Iterator<Proceso> iterator = listos.iterator();
-        while(iterator.hasNext()) {
-            Proceso procesoActual = iterator.next();
+        for (int i = 0; i < listos.size(); i++) {
+            Proceso procesoActual = listos.get(i).clonar();
             despachados.add(procesoActual.clonar());
             ejecucion.add(procesoActual.clonar());
             if (procesoActual.getTiempo() <= QUANTUM) {
