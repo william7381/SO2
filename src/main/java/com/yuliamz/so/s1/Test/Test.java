@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.yuliamz.so.s1.Test;
 
 import com.yuliamz.so.s1.Modelo.AdministradorProcesos;
@@ -22,23 +17,24 @@ public class Test {
         list.add(new Proceso("P1", 10, true));
         list.add(new Proceso("P2", 5, false));
         list.add(new Proceso("P3", 20, false));
-        AdministradorProcesos administradorProcesos = new AdministradorProcesos(list);
         try {
+            AdministradorProcesos administradorProcesos = new AdministradorProcesos(list);
             administradorProcesos.iniciarSecuencia();
+            System.out.println("========Listos==========");
             mostrarLista(administradorProcesos.getListos());
-            System.out.println("Des");
+            System.out.println("========Despachados======");
             mostrarLista(administradorProcesos.getDespachados());
-            System.out.println("Eje");
+            System.out.println("========Ejecucion======");
             mostrarLista(administradorProcesos.getEjecucion());
-            System.out.println("Exp");
+            System.out.println("========Expiracion de Tiempo======");
             mostrarLista(administradorProcesos.getExpiracionTiempo());
-            System.out.println("Bloqueando");
+            System.out.println("========Bloqueando======");
             mostrarLista(administradorProcesos.getBloqueando());
-            System.out.println("Bloqueados");
+            System.out.println("========Bloqueados======");
             mostrarLista(administradorProcesos.getBloqueados());
-            System.out.println("Despertados");
+            System.out.println("========Despertados======");
             mostrarLista(administradorProcesos.getDespertados());
-            System.out.println("Finalizados");
+            System.out.println("========Finalizados======");
             mostrarLista(administradorProcesos.getFinalizados());
         } catch (CloneNotSupportedException ex) {
             Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
