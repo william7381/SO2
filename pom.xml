@@ -27,7 +27,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.yuliamz.so.s1.Test.Test</mainClass>
+                            <mainClass>com.yuliamz.so.s1.Vista.FXMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

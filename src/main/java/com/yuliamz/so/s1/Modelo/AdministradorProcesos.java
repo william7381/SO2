@@ -6,14 +6,14 @@ import java.util.ArrayList;
 public class AdministradorProcesos {
     public static final int QUANTUM = 5;
     
-    private ArrayList<Proceso> listos;
-    private ArrayList<Proceso> despachados;
-    private ArrayList<Proceso> ejecucion;
-    private ArrayList<Proceso> expiracionTiempo;
-    private ArrayList<Proceso> bloqueando;
-    private ArrayList<Proceso> bloqueados;
-    private ArrayList<Proceso> despertados;
-    private ArrayList<Proceso> finalizados;
+    private final ArrayList<Proceso> listos;
+    private final ArrayList<Proceso> despachados;
+    private final ArrayList<Proceso> ejecucion;
+    private final ArrayList<Proceso> expiracionTiempo;
+    private final ArrayList<Proceso> bloqueando;
+    private final ArrayList<Proceso> bloqueados;
+    private final ArrayList<Proceso> despertados;
+    private final ArrayList<Proceso> finalizados;
 
     public AdministradorProcesos(ArrayList<Proceso> listaProcesos){
         listos=listaProcesos;

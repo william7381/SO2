@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import com.yuliamz.so.s1.Vista.*?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yuliamz.so.s1.controlador.SO1Controller">
+    <children>
+        <ToolBar prefHeight="40.0" prefWidth="1366.0">
+            <items>
+                <Button fx:id="btnProcesos" mnemonicParsing="false" onAction="#procesos" text="Procesos">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/gear.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnReportes" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#reportes" text="Reportes">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/table.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="805.0" text="Software 1">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Label>
+                <Button fx:id="btnAcercaDe" layoutX="153.0" layoutY="10.0" mnemonicParsing="false" onAction="#acercaDe" text="Acerca de">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/about.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnSalir" layoutX="326.0" layoutY="10.0" mnemonicParsing="false" onAction="#salir" text="Salir">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/exit.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </items>
+            <effect>
+                <DropShadow />
+            </effect>
+        </ToolBar>
+        <Pane fx:id="panelProcesos" layoutY="83.0" prefHeight="685.0" prefWidth="1366.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-3.0" prefHeight="25.0" prefWidth="1366.0" text="Procesos">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <Label layoutX="85.0" layoutY="145.0" text="Nombre">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="88.0" layoutY="194.0" text="Tiempo">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="85.0" layoutY="252.0" text="Bloqueo">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <MaskField fx:id="txtNombreProceso" layoutX="196.0" layoutY="140.0" mask="PDD" prefHeight="37.0" prefWidth="382.0" promptText="Nombre del proceso">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </MaskField>
+                <Spinner fx:id="numTiempo" editable="true" layoutX="196.0" layoutY="190.0" prefHeight="35.0" prefWidth="382.0">
+                    <valueFactory>
+                        <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="5" max="100" min="1" />
+                    </valueFactory>
+                </Spinner>
+                <CheckBox fx:id="checkBloqueo" layoutX="196.0" layoutY="253.0" mnemonicParsing="false" onAction="#bloquear">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </CheckBox>
+                <Label fx:id="infoBloqueo" alignment="CENTER" layoutX="235.0" layoutY="252.0" prefHeight="27.0" prefWidth="346.0" text="Proceso bloqueado" textAlignment="CENTER" textFill="#ab0d0d" visible="false">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="errorNombre" alignment="CENTER_RIGHT" layoutX="85.0" layoutY="106.0" prefHeight="27.0" prefWidth="500.0" textAlignment="RIGHT" textFill="#ab0d0d" visible="false">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnCrearProceso" layoutX="193.0" layoutY="331.0" mnemonicParsing="false" onAction="#crearProceso" text="Crear Proceso">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+               <effect>
+                  <DropShadow offsetY="3.0" />
+               </effect>
+                </Button>
+                <Button fx:id="btnLimpiarCampos" cancelButton="true" layoutX="324.0" layoutY="331.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar Campos">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" offsetY="3.0" />
+               </effect>
+                </Button>
+                <Line endX="1.0" endY="500.0" layoutX="686.0" startY="30.0">
+                    <effect>
+                        <DropShadow blurType="GAUSSIAN" height="17.79" radius="12.1625" width="32.86" />
+                    </effect>
+                </Line>
+                <TableView fx:id="tablaProcesos" editable="true" layoutX="788.0" layoutY="121.0" prefHeight="352.0" prefWidth="500.0" style="-fx-font-size: 16;">
+                    <columns>
+                        <TableColumn fx:id="columnaNombre" prefWidth="155.0" style="-fx-font-size: 16;" text="Nombre" />
+                        <TableColumn fx:id="columnaTiempo" prefWidth="164.0" style="-fx-font-size: 16;" text="Tiempo" />
+                        <TableColumn fx:id="ColumnaEstado" prefWidth="179.0" style="-fx-font-size: 16;" text="Estado" />
+                    </columns>
+                </TableView>
+                <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="687.0" text="Agregar Procesos">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="688.0" layoutY="46.0" prefHeight="25.0" prefWidth="678.0" text="Lista de Procesos">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnIniciar" layoutX="614.0" layoutY="545.0" mnemonicParsing="false" onAction="#iniciarProcesos" style="-fx-background-color: linear-gradient(#f0ff35, #a9ff00),        radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);; -fx-background-insets: 0,1,2;; -fx-background-radius: 3,2,1;;" text="Iniciar procesos">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="18.03" offsetY="2.0" radius="7.032500000000001" width="12.1" />
+               </effect>
+                </Button>
+            </children>
+        </Pane>
+      <Pane fx:id="panelReportes" layoutX="10.0" layoutY="93.0" prefHeight="685.0" prefWidth="1366.0" visible="false">
+         <children>
+            <ListView fx:id="viewListos" layoutX="28.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-14.0" layoutY="61.0" prefHeight="25.0" prefWidth="1366.0" text="           Listos          Despachados         En Ejecución         Expiración de Tiempo         Bloqueando         Bloqueados         Despertados         Finalizados         ">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ListView fx:id="viewDespachados" layoutX="165.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewEjecucion" layoutX="327.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewExpTiempo" layoutX="535.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewBloqueando" layoutX="728.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewBloqueados" layoutX="881.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewDespertados" layoutX="1039.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewFinalizados" layoutX="1194.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-9.0" layoutY="-13.0" prefHeight="25.0" prefWidth="1366.0" text="Reportes">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

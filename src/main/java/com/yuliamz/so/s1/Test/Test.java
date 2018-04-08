@@ -6,10 +6,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author equipo
- */
 public class Test {
     
     public static void main(String[] args) {
@@ -42,9 +38,7 @@ public class Test {
     }
     
     public static void mostrarLista(ArrayList<Proceso> list) {
-        for (Proceso proceso : list) {
-            System.out.println(proceso.toString());
-        }
+        list.forEach(System.out::println);
     }
     
 }
