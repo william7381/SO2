@@ -5,8 +5,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
@@ -18,7 +16,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import com.yuliamz.so.s1.Vista.*?>
-
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yuliamz.so.s1.controlador.SO1Controller">
     <children>
         <ToolBar prefHeight="40.0" prefWidth="1366.0">
@@ -195,19 +192,19 @@
         </Pane>
       <Pane fx:id="panelReportes" layoutX="10.0" layoutY="93.0" prefHeight="685.0" prefWidth="1366.0" visible="false">
          <children>
-            <ListView fx:id="viewListos" layoutX="28.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewListos" layoutX="28.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-14.0" layoutY="61.0" prefHeight="25.0" prefWidth="1366.0" text="           Listos          Despachados         En Ejecución         Expiración de Tiempo         Bloqueando         Bloqueados         Despertados         Finalizados         ">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <ListView fx:id="viewDespachados" layoutX="165.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewEjecucion" layoutX="327.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewExpTiempo" layoutX="535.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewBloqueando" layoutX="728.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewBloqueados" layoutX="881.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewDespertados" layoutX="1039.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewFinalizados" layoutX="1194.0" layoutY="91.0" prefHeight="352.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewDespachados" layoutX="165.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewEjecucion" layoutX="327.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewExpTiempo" layoutX="535.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewBloqueando" layoutX="728.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewBloqueados" layoutX="881.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewDespertados" layoutX="1039.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewFinalizados" layoutX="1194.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-9.0" layoutY="-13.0" prefHeight="25.0" prefWidth="1366.0" text="Reportes">
                <font>
                   <Font size="24.0" />

@@ -75,7 +75,12 @@ public class SO1Controller implements Initializable {
             return false;
         }
         if(numTiempo.getText().equals("")){
-            errorNombre.setText("El tiempo del proceso no puede estar vacio");
+            errorNombre.setText("El tiempo del proceso no puede estar vacío");
+            errorNombre.setVisible(true);
+            return false;
+        }
+        if(numTiempo.getText().equals("0")){
+            errorNombre.setText("El tiempo del proceso debe ser superior a 0");
             errorNombre.setVisible(true);
             return false;
         }
