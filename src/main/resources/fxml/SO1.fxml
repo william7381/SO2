@@ -111,11 +111,16 @@
                         <Font size="16.0" />
                     </font>
                 </MaskField>
-                <Spinner fx:id="numTiempo" editable="true" layoutX="196.0" layoutY="190.0" prefHeight="35.0" prefWidth="382.0">
+<!--                <Spinner fx:id="numTiempo" editable="true" layoutX="196.0" layoutY="190.0" prefHeight="35.0" prefWidth="382.0">
                     <valueFactory>
                         <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="5" max="100" min="1" />
                     </valueFactory>
-                </Spinner>
+                </Spinner>-->
+                <MaskField fx:id="numTiempo" layoutX="196.0" layoutY="190.0" mask="DDDD" prefHeight="37.0" prefWidth="382.0" promptText="Tiempo de ejecucion">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </MaskField>
                 <CheckBox fx:id="checkBloqueo" layoutX="196.0" layoutY="253.0" mnemonicParsing="false" onAction="#bloquear">
                     <font>
                         <Font size="16.0" />
@@ -126,7 +131,7 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="errorNombre" alignment="CENTER_RIGHT" layoutX="85.0" layoutY="106.0" prefHeight="27.0" prefWidth="500.0" textAlignment="RIGHT" textFill="#ab0d0d" visible="false">
+                <Label fx:id="errorNombre" alignment="CENTER_RIGHT" layoutX="70.0" layoutY="106.0" prefHeight="27.0" prefWidth="500.0" textAlignment="RIGHT" textFill="#ab0d0d" visible="false">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -168,7 +173,7 @@
                   <DropShadow blurType="GAUSSIAN" height="18.03" offsetY="2.0" radius="7.032500000000001" width="12.1" />
                </effect>
                 </Button>
-                <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="687.0" text="Agregar Procesos">
+                <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="687.0" text="Agregar Proceso">
                     <font>
                         <Font size="18.0" />
                     </font>

@@ -40,7 +40,7 @@ public class SO1Controller implements Initializable {
     @FXML private AnchorPane root;
     @FXML private Pane panelProcesos, panelReportes;
     @FXML private TextField txtNombreProceso;
-    @FXML private Spinner<Integer> numTiempo;
+    @FXML private TextField numTiempo;
     @FXML private CheckBox checkBloqueo;
     @FXML private Label infoBloqueo, errorNombre;
     @FXML private Button btnCrearProceso, btnLimpiarCampos, btnIniciar, btnSalir, btnAcercaDe, btnReportes, btnProcesos;
@@ -57,8 +57,8 @@ public class SO1Controller implements Initializable {
     @FXML
     void limpiar(ActionEvent event) {
         checkBloqueo.setSelected(false);
-//        txtNombreProceso.setText("P");
-        numTiempo.getValueFactory().setValue(5);
+//        txtNombreProceso.setText("P00");
+//        numTiempo.setText("5");
         infoBloqueo.setVisible(false);
         errorNombre.setVisible(false);
     }
@@ -70,7 +70,12 @@ public class SO1Controller implements Initializable {
             return false;
         }
         if(listaProcesos.stream().anyMatch(e -> e.getNombre().equals(nombre))){
-            errorNombre.setText("El nombre de este proceso ya existe, por favor elija uno nuevo");
+            errorNombre.setText("El nombre ya registrado, por favor elija uno nuevo");
+            errorNombre.setVisible(true);
+            return false;
+        }
+        if(numTiempo.getText().equals("")){
+            errorNombre.setText("El tiempo del proceso no puede estar vacio");
             errorNombre.setVisible(true);
             return false;
         }
@@ -79,13 +84,14 @@ public class SO1Controller implements Initializable {
     
     @FXML
     void crearProceso(ActionEvent event) {
-        System.out.println("value: " + numTiempo.getValue());
         String nombre= txtNombreProceso.getText().trim();
-        if (isValidName(nombre)) {            
-            listaProcesos.add(new Proceso(nombre, numTiempo.getValue(), checkBloqueo.isSelected()));
+        if (isValidName(nombre)) {
+            int tiempo = Integer.parseInt(numTiempo.getText());
+            listaProcesos.add(new Proceso(nombre, tiempo, checkBloqueo.isSelected()));
             limpiar(event);
         }
     }
+    
     @FXML
     void reportes(ActionEvent event) {
         if (!panelReportes.isVisible()) mostrarReportes();
@@ -142,8 +148,7 @@ public class SO1Controller implements Initializable {
          Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Acerca de...");
             alert.setHeaderText("Software 1 de Sistemas Operativos");
-            alert.setHeaderText("Este software tiene como objetivo simular los procesos manejados mediante una computadora.");
-            alert.setContentText("Autores:\n    *Julian David Grijalba Bernal\n    *William Desiderio Gil Farfan\n\nThird parties icons copyright\n"
+            alert.setContentText("Este software tiene como objetivo simular\nla transmicion de estados de los procesos\nmanejados mediante una computadora.\n\nAutores:\n    *Julian David Grijalba Bernal\n    *William Desiderio Gil Farfan\n\nThird parties icons copyright\n"
                     + "Dave Gandy © SIL Open Font License (OFL)");
             alert.initOwner(panelProcesos.getScene().getWindow());
             alert.showAndWait();
@@ -171,10 +176,6 @@ public class SO1Controller implements Initializable {
             return new ReadOnlyStringWrapper(e.getValue().isBloqueado() ? "Bloqueado" : "Sin bloqueo");
         });
         
-//        TableColumn tableColumn = new TableColumn("Eliminar");
-//        tableColumn.setCellValueFactory(new PropertyValueFactory<Proceso, Button>("button"));
-//        tablaProcesos.getColumns().add(tableColumn);
-
         tablaProcesos.setItems(listaProcesos);
     }
 
