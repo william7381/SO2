@@ -157,8 +157,17 @@
                         <TableColumn fx:id="columnaNombre" prefWidth="155.0" style="-fx-font-size: 16;" text="Nombre" />
                         <TableColumn fx:id="columnaTiempo" prefWidth="164.0" style="-fx-font-size: 16;" text="Tiempo" />
                         <TableColumn fx:id="ColumnaEstado" prefWidth="179.0" style="-fx-font-size: 16;" text="Estado" />
+                        <!--<TableColumn fx:id="ColumnaRemover" prefWidth="179.0" style="-fx-font-size: 16;" text="Remover" />-->
                     </columns>
                 </TableView>
+                <Button fx:id="btnIniciar" layoutX="930.0" layoutY="500.0" mnemonicParsing="false" onAction="#eliminarProceso" text="Eliminar fila seleccionada">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="18.03" offsetY="2.0" radius="7.032500000000001" width="12.1" />
+               </effect>
+                </Button>
                 <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="687.0" text="Agregar Procesos">
                     <font>
                         <Font size="18.0" />

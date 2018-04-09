@@ -57,6 +57,7 @@ public class SO1Controller implements Initializable {
     @FXML
     void limpiar(ActionEvent event) {
         checkBloqueo.setSelected(false);
+//        txtNombreProceso.setText("P");
         numTiempo.getValueFactory().setValue(5);
         infoBloqueo.setVisible(false);
         errorNombre.setVisible(false);
@@ -78,6 +79,7 @@ public class SO1Controller implements Initializable {
     
     @FXML
     void crearProceso(ActionEvent event) {
+        System.out.println("value: " + numTiempo.getValue());
         String nombre= txtNombreProceso.getText().trim();
         if (isValidName(nombre)) {            
             listaProcesos.add(new Proceso(nombre, numTiempo.getValue(), checkBloqueo.isSelected()));
@@ -140,7 +142,8 @@ public class SO1Controller implements Initializable {
          Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Acerca de...");
             alert.setHeaderText("Software 1 de Sistemas Operativos");
-            alert.setContentText("Autores:\n    *Julian David Grijalba Bernal\n    *William Gil\n\nThird parties icons copyright\n"
+            alert.setHeaderText("Este software tiene como objetivo simular los procesos manejados mediante una computadora.");
+            alert.setContentText("Autores:\n    *Julian David Grijalba Bernal\n    *William Desiderio Gil Farfan\n\nThird parties icons copyright\n"
                     + "Dave Gandy © SIL Open Font License (OFL)");
             alert.initOwner(panelProcesos.getScene().getWindow());
             alert.showAndWait();
@@ -149,6 +152,13 @@ public class SO1Controller implements Initializable {
     @FXML
     void salir(ActionEvent event) {
         System.exit(0);
+    }
+    
+    @FXML
+    private void eliminarProceso(ActionEvent event) {
+        if (tablaProcesos.getSelectionModel().getSelectedIndex() >= 0) {
+            tablaProcesos.getItems().remove(tablaProcesos.getSelectionModel().getFocusedIndex());
+        }
     }
 
     @Override
@@ -160,6 +170,10 @@ public class SO1Controller implements Initializable {
         ColumnaEstado.setCellValueFactory(e -> {
             return new ReadOnlyStringWrapper(e.getValue().isBloqueado() ? "Bloqueado" : "Sin bloqueo");
         });
+        
+//        TableColumn tableColumn = new TableColumn("Eliminar");
+//        tableColumn.setCellValueFactory(new PropertyValueFactory<Proceso, Button>("button"));
+//        tablaProcesos.getColumns().add(tableColumn);
 
         tablaProcesos.setItems(listaProcesos);
     }

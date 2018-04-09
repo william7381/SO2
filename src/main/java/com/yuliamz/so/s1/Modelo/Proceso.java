@@ -1,5 +1,7 @@
 package com.yuliamz.so.s1.Modelo;
 
+import javafx.scene.control.Button;
+
 @lombok.Data
 @lombok.AllArgsConstructor
 public class Proceso implements Cloneable {
