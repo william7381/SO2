@@ -80,7 +80,7 @@ public class SO1Controller implements Initializable {
             errorNombre.setVisible(true);
             return false;
         }
-        if(numTiempo.getText().equals("0")){
+        if(numTiempo.getText().replaceAll("0+", "0").equals("0")){
             errorNombre.setText("El tiempo del proceso debe ser superior a 0");
             errorNombre.setVisible(true);
             return false;
