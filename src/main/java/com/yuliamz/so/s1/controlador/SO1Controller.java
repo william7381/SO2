@@ -23,6 +23,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -108,7 +109,15 @@ public class SO1Controller implements Initializable {
 
     @FXML
     void iniciarProcesos(ActionEvent event) {
-        ap = new AdministradorProcesos(new ArrayList<>(listaProcesos));
+        if (listaProcesos.isEmpty()) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("No hay procesos");
+            alert.setHeaderText("No existen procesos para la simulación");
+            alert.setContentText("Asegurese de ingresar al menos un(1) proceso antes de iniciar la simulación");
+            alert.initOwner(panelProcesos.getScene().getWindow());
+            alert.showAndWait();
+        }else{
+            ap = new AdministradorProcesos(new ArrayList<>(listaProcesos));
         try {
             ap.iniciarSecuencia();
             viewListos.setItems(getObservableListFrom(ap.getListos()));
@@ -127,8 +136,12 @@ public class SO1Controller implements Initializable {
             alert.setTitle("Error inesperado");
             alert.setHeaderText("Ocurrió un error en la ejecución");
             alert.setContentText("Asegurese que la información insertada sea correcta");
+            alert.initOwner(panelProcesos.getScene().getWindow());
             alert.showAndWait();
         }
+        }
+        
+        
 
     }
 
@@ -150,13 +163,13 @@ public class SO1Controller implements Initializable {
 
     @FXML
     void acercaDe(ActionEvent event) {
-         Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Acerca de...");
-            alert.setHeaderText("Software 1 de Sistemas Operativos");
-            alert.setContentText("Este software tiene como objetivo simular\nla transmicion de estados de los procesos\nmanejados mediante una computadora.\n\nAutores:\n    *Julian David Grijalba Bernal\n    *William Desiderio Gil Farfan\n\nThird parties icons copyright\n"
-                    + "Dave Gandy © SIL Open Font License (OFL)");
-            alert.initOwner(panelProcesos.getScene().getWindow());
-            alert.showAndWait();
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Acerca de...");
+        alert.setHeaderText("Software 1 de Sistemas Operativos");
+        alert.setContentText("Este software tiene como objetivo simular\nla transmicion de estados de los procesos\nmanejados mediante una computadora.\n\nAutores:\n    *Julian David Grijalba Bernal\n    *William Desiderio Gil Farfan\n\nThird parties icons copyright\n"
+                + "Dave Gandy © SIL Open Font License (OFL)");
+        alert.initOwner(panelProcesos.getScene().getWindow());
+        alert.showAndWait();
     }
 
     @FXML
@@ -168,6 +181,12 @@ public class SO1Controller implements Initializable {
     private void eliminarProceso(ActionEvent event) {
         if (tablaProcesos.getSelectionModel().getSelectedIndex() >= 0) {
             tablaProcesos.getItems().remove(tablaProcesos.getSelectionModel().getFocusedIndex());
+        }else{
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("No se puede eliminar");
+            alert.setHeaderText("Debe seleccionar el proceso que desea eliminar");
+            alert.initOwner(panelProcesos.getScene().getWindow());
+            alert.showAndWait();
         }
     }
 
@@ -179,9 +198,10 @@ public class SO1Controller implements Initializable {
         ColumnaEstado.setCellValueFactory(new PropertyValueFactory<>("isBloqueado"));
         ColumnaEstado.setCellValueFactory(e -> {
             return new ReadOnlyStringWrapper(e.getValue().isBloqueado() ? "Bloqueado" : "Sin bloqueo");
-        });
-        
+        });        
         tablaProcesos.setItems(listaProcesos);
+        txtNombreProceso.setTooltip(new Tooltip("El nombre del proceso debe iniciar con una \"P\" seguido de un número identificador"));
+        numTiempo.setTooltip(new Tooltip("El tiempo del proceso debe ser superior a 0 y no puede estar vacío"));
     }
 
 }
