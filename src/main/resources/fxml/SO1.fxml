@@ -192,19 +192,19 @@
         </Pane>
       <Pane fx:id="panelReportes" layoutX="10.0" layoutY="93.0" prefHeight="685.0" prefWidth="1366.0" visible="false">
          <children>
-            <ListView fx:id="viewListos" layoutX="28.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewListos" layoutX="25.0" layoutY="91.0" prefHeight="500.0" prefWidth="120.0" style="-fx-font-size: 16;" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-14.0" layoutY="61.0" prefHeight="25.0" prefWidth="1366.0" text="           Listos          Despachados         En Ejecución         Expiración de Tiempo         Bloqueando         Bloqueados         Despertados         Finalizados         ">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <ListView fx:id="viewDespachados" layoutX="165.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewEjecucion" layoutX="327.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewExpTiempo" layoutX="535.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewBloqueando" layoutX="728.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewBloqueados" layoutX="881.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewDespertados" layoutX="1039.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
-            <ListView fx:id="viewFinalizados" layoutX="1194.0" layoutY="91.0" prefHeight="500.0" prefWidth="106.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewDespachados" layoutX="165.0" layoutY="91.0" prefHeight="500.0" prefWidth="120.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewEjecucion" layoutX="327.0" layoutY="91.0" prefHeight="500.0" prefWidth="120.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewExpTiempo" layoutX="523.0" layoutY="91.0" prefHeight="500.0" prefWidth="120.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewBloqueando" layoutX="728.0" layoutY="91.0" prefHeight="500.0" prefWidth="120.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewBloqueados" layoutX="881.0" layoutY="91.0" prefHeight="500.0" prefWidth="120.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewDespertados" layoutX="1039.0" layoutY="91.0" prefHeight="500.0" prefWidth="120.0" style="-fx-font-size: 16;" />
+            <ListView fx:id="viewFinalizados" layoutX="1194.0" layoutY="91.0" prefHeight="500.0" prefWidth="120.0" style="-fx-font-size: 16;" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-9.0" layoutY="-13.0" prefHeight="25.0" prefWidth="1366.0" text="Reportes">
                <font>
                   <Font size="24.0" />

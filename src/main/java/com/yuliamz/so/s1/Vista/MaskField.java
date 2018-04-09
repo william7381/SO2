@@ -267,8 +267,6 @@ public class MaskField extends TextField {
 
     }
 
-
-
     private int interpretMaskPositionInPlainPosition(int posMask)
     {
         int posPlain = 0;
@@ -281,7 +279,6 @@ public class MaskField extends TextField {
 
         return posPlain;
     }
-
 
     @Override
     public void replaceText(int start, int end, String text) {
@@ -307,6 +304,5 @@ public class MaskField extends TextField {
         setPlainText(plainText1 + text + plainText2);
 
     }
-
 
 }
