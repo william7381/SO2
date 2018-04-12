@@ -2,6 +2,7 @@ package com.yuliamz.so.s1.controlador;
 
 import com.yuliamz.so.s1.Modelo.AdministradorProcesos;
 import com.yuliamz.so.s1.Modelo.Proceso;
+import com.yuliamz.so.s1.Vista.MaskField;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -19,10 +20,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -40,11 +39,10 @@ public class SO1Controller implements Initializable {
 
     @FXML private AnchorPane root;
     @FXML private Pane panelProcesos, panelReportes;
-    @FXML private TextField txtNombreProceso;
-    @FXML private TextField numTiempo;
+    @FXML private MaskField txtNombreProceso;
+    @FXML private MaskField numTiempo;
     @FXML private CheckBox checkBloqueo;
     @FXML private Label infoBloqueo, errorNombre;
-    @FXML private Button btnCrearProceso, btnLimpiarCampos, btnIniciar, btnSalir, btnAcercaDe, btnReportes, btnProcesos;
     @FXML private TableView<Proceso> tablaProcesos;
     @FXML private TableColumn<Proceso, String> columnaNombre, ColumnaEstado;
     @FXML private TableColumn<Proceso, Integer> columnaTiempo;
@@ -58,8 +56,8 @@ public class SO1Controller implements Initializable {
     @FXML
     void limpiar(ActionEvent event) {
         checkBloqueo.setSelected(false);
-//        txtNombreProceso.setText("P00");
-//        numTiempo.setText("5");
+        numTiempo.setPlainText("5");
+        txtNombreProceso.setPlainText("P");
         infoBloqueo.setVisible(false);
         errorNombre.setVisible(false);
     }
