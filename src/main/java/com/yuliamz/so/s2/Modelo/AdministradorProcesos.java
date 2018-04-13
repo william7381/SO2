@@ -83,7 +83,7 @@ public class AdministradorProcesos {
                         listos.add(j, proceso);
                         List<Proceso> subLista = listos.subList(j, listos.size());
                         for (Proceso procesoActual : subLista) {
-                            procesoActual.setPrioridad(proceso.getPrioridad()+1);
+                            procesoActual.setPrioridad(procesoActual.getPrioridad()+1);
                         }
                     }
                 }
