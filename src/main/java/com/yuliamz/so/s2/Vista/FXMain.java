@@ -1,4 +1,4 @@
-package com.yuliamz.so.s1.Vista;
+package com.yuliamz.so.s2.Vista;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -20,7 +20,7 @@ public class FXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/SO1.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/SO2.fxml"));
         Scene scene = new Scene(root);
         
         primaryStage.setTitle("Transmicion de Procesos");

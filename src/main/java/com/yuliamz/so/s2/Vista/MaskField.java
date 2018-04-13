@@ -1,4 +1,4 @@
-package com.yuliamz.so.s1.Vista;
+package com.yuliamz.so.s2.Vista;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

@@ -1,8 +1,8 @@
-package com.yuliamz.so.s1.controlador;
+package com.yuliamz.so.s2.controlador;
 
-import com.yuliamz.so.s1.Modelo.AdministradorProcesos;
-import com.yuliamz.so.s1.Modelo.Proceso;
-import com.yuliamz.so.s1.Vista.MaskField;
+import com.yuliamz.so.s2.Modelo.AdministradorProcesos;
+import com.yuliamz.so.s2.Modelo.Proceso;
+import com.yuliamz.so.s2.Vista.MaskField;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -32,7 +32,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Yuliamz
  */
-public class SO1Controller implements Initializable {
+public class SO2Controller implements Initializable {
 
     ObservableList<Proceso> listaProcesos;
     AdministradorProcesos ap;
@@ -86,12 +86,20 @@ public class SO1Controller implements Initializable {
         return true;
     }
     
+    private boolean isValidPriority(int priority) {
+        if(priority > 0 && listaProcesos.stream().anyMatch(p -> p.getPrioridad() != priority)) {
+            return true;
+        }
+        return false;
+    }
+    
     @FXML
     void crearProceso(ActionEvent event) {
-        String nombre= txtNombreProceso.getText().trim();
-        if (isValidName(nombre)) {
+        String nombre = txtNombreProceso.getText().trim();
+//        int prioridad = maskFilePrioridad.getText().trim();
+        if (isValidName(nombre) /*&& isValidPriority(prioridad)*/) {
             int tiempo = Integer.parseInt(numTiempo.getText());
-            listaProcesos.add(new Proceso(nombre, tiempo, checkBloqueo.isSelected()));
+            listaProcesos.add(new Proceso(nombre, tiempo, checkBloqueo.isSelected(), 0, 0, true, null));
             limpiar(event);
         }
     }
@@ -129,7 +137,7 @@ public class SO1Controller implements Initializable {
 
             mostrarReportes();
         } catch (CloneNotSupportedException ex) {
-            Logger.getLogger(SO1Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SO2Controller.class.getName()).log(Level.SEVERE, null, ex);
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error inesperado");
             alert.setHeaderText("Ocurrió un error en la ejecución");
@@ -163,7 +171,7 @@ public class SO1Controller implements Initializable {
     void acercaDe(ActionEvent event) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Acerca de...");
-        alert.setHeaderText("Software 1 de Sistemas Operativos");
+        alert.setHeaderText("Software 2 de Sistemas Operativos");
         alert.setContentText("Este software tiene como objetivo simular\nla transmicion de estados de los procesos\nmanejados mediante una computadora.\n\nAutores:\n    *Julian David Grijalba Bernal\n    *William Desiderio Gil Farfan\n\nThird parties icons copyright\n"
                 + "Dave Gandy © SIL Open Font License (OFL)");
         alert.initOwner(panelProcesos.getScene().getWindow());

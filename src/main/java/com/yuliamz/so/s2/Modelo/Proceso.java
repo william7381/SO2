@@ -1,4 +1,4 @@
-package com.yuliamz.so.s1.Modelo;
+package com.yuliamz.so.s2.Modelo;
 
 import javafx.scene.control.Button;
 
@@ -6,9 +6,13 @@ import javafx.scene.control.Button;
 @lombok.AllArgsConstructor
 public class Proceso implements Cloneable {
     
-    String nombre;
-    int tiempo;
-    boolean isBloqueado;
+    private String nombre;
+    private int tiempo;
+    private boolean isBloqueado;
+    private int prioridad;
+    private int nuevaPrioridad;
+    private boolean isDestruido;
+    private Proceso comunicacion;
     
     protected Proceso clonar() throws CloneNotSupportedException {
         return (Proceso) clone();
@@ -21,7 +25,7 @@ public class Proceso implements Cloneable {
     
     @Override
     public String toString() {
-        return this.nombre + " " + this.tiempo + " " + this.isBloqueado;
+        return this.nombre + " " + this.tiempo + " " + this.isBloqueado + " " + prioridad + " " + nuevaPrioridad + " " + isDestruido  + " " + ((comunicacion != null) ? "true" : "false");
     }
     
 }

@@ -1,7 +1,7 @@
-package com.yuliamz.so.s1.Test;
+package com.yuliamz.so.s2.Test;
 
-import com.yuliamz.so.s1.Modelo.AdministradorProcesos;
-import com.yuliamz.so.s1.Modelo.Proceso;
+import com.yuliamz.so.s2.Modelo.AdministradorProcesos;
+import com.yuliamz.so.s2.Modelo.Proceso;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,9 +11,12 @@ public class Test {
     
     public static void main(String[] args) {
         ArrayList<Proceso> list = new ArrayList<>();
-        list.add(new Proceso("P1", 10, true));
-        list.add(new Proceso("P2", 5, false));
-        list.add(new Proceso("P3", 20, false));
+        Proceso proceso = new Proceso("P1", 10, true, 3, 2, true, null);
+        list.add(proceso);
+        Proceso proceso1 = new Proceso("P2", 5, false, 7, 8, true, null);
+        list.add(proceso1);
+        Proceso proceso2 = new Proceso("P3", 6, false, 2, 1, false, proceso);
+        list.add(proceso2);
         try {
             AdministradorProcesos administradorProcesos = new AdministradorProcesos(list);
             administradorProcesos.iniciarSecuencia();
@@ -29,6 +32,10 @@ public class Test {
             mostrarLista(administradorProcesos.getBloqueando());
             System.out.println("========Bloqueados======");
             mostrarLista(administradorProcesos.getBloqueados());
+            System.out.println("========Comunicacion======");
+            mostrarLista(administradorProcesos.getComunicaciones());
+            System.out.println("========Destruidos======");
+            mostrarLista(administradorProcesos.getDestruidos());
             System.out.println("========Despertados======");
             mostrarLista(administradorProcesos.getDespertados());
             System.out.println("========Finalizados======");

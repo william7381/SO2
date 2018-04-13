@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.yuliamz.so.s1</groupId>
-    <artifactId>SO1</artifactId>
+    <groupId>com.yuliamz.so.s2</groupId>
+    <artifactId>SO2</artifactId>
     <version>1</version>
     <packaging>jar</packaging>
     <dependencies>
@@ -27,11 +27,12 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.yuliamz.so.s1.Vista.FXMain</mainClass>
+                            <mainClass>com.yuliamz.so.s2.Vista.FXMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+    <name>SO2</name>
 </project>
